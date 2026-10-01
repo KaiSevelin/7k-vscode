@@ -24,6 +24,11 @@ jobs:
           node-version: 22
       - run: npm install
         working-directory: 7K
+      # The extension resolves Core through `types`, so Core has to be built. The
+      # sandbox reads Core's TypeScript source directly and needs no such step; the
+      # difference is that a VS Code extension is loaded as CommonJS.
+      - run: npm run build
+        working-directory: 7K
       - run: npm install
         working-directory: 7k-vscode
       - run: npm run typecheck
