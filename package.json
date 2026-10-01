@@ -1,0 +1,82 @@
+{
+  "name": "sevenk-vscode",
+  "displayName": "7K",
+  "description": "Highlighting, workspace diagnostics, completion, go-to-definition and outline for the 7K modelling language",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "publisher": "KaiSevelin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KaiSevelin/7k-vscode.git"
+  },
+  "homepage": "https://github.com/KaiSevelin/7k-vscode#readme",
+  "bugs": {
+    "url": "https://github.com/KaiSevelin/7k-vscode/issues"
+  },
+  "keywords": [
+    "7k",
+    "dsl",
+    "message-driven",
+    "event-driven",
+    "architecture"
+  ],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:7k",
+    "workspaceContains:**/*.7k"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "7k",
+        "aliases": [
+          "7K"
+        ],
+        "extensions": [
+          ".7k"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "7k",
+        "scopeName": "source.7k",
+        "path": "./syntaxes/7k.tmLanguage.json"
+      }
+    ],
+    "configurationDefaults": {
+      "[7k]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false,
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "gen": "tsx scripts/gen-grammar.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --build --force",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "@sevenk/core": "file:../7K/packages/core"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.90.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  },
+  "type": "commonjs"
+}
