@@ -131,7 +131,7 @@
         },
         {
           "name": "keyword.operator.word.7k",
-          "match": "(?i)\\b(otherwise|contains|within|after|claim|from|with|then|when|max|for|and|not|to|as|by|in|or)\\b"
+          "match": "(?i)\\b(occurrence|otherwise|contains|terminal|within|after|claim|from|with|then|when|max|for|and|not|to|as|by|in|or)\\b"
         },
         {
           "name": "support.type.primitive.7k",
